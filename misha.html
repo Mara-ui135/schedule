@@ -13,9 +13,9 @@
       <header>
         <div>Logo</div>
         <nav>
-          <a href="#">Главная</a>
-          <a href="#">О Приложении</a>
-          <a href="#">Планировщик</a>
+          <a href="index.html">Главная</a>
+          <a href="about.html">О Приложении</a>
+          <a href="misha.html">Планировщик</a>
         </nav>
       </header>
       <div class="container">
@@ -40,9 +40,12 @@
         const tasksContainer = document.getElementById('tasks');
         const submitBtn = document.getElementById('submitBtn');
         const taskInput = document.getElementById('taskInput');
-    
-        const tasks = {};
-    
+      
+        let tasks = JSON.parse(localStorage.getItem('tasks')) || {};
+      
+        // Обновляем метки с задачами при загрузке
+        highlightDaysWithTasks();
+      
         days.forEach(day => {
           day.addEventListener('click', () => {
             days.forEach(d => d.classList.remove('active'));
@@ -51,7 +54,7 @@
             renderTasks();
           });
         });
-    
+      
         submitBtn.addEventListener('click', () => {
           if (!activeDay) {
             alert('Выберите день недели!');
@@ -59,22 +62,47 @@
           }
           const taskText = taskInput.value.trim();
           if (!taskText) return;
+      
           if (!tasks[activeDay]) tasks[activeDay] = [];
           tasks[activeDay].push(taskText);
           taskInput.value = '';
+          saveTasks();
           renderTasks();
+          highlightDaysWithTasks();
         });
-    
+      
         function renderTasks() {
           tasksContainer.innerHTML = '';
           if (activeDay && tasks[activeDay]) {
-            tasks[activeDay].forEach(t => {
+            tasks[activeDay].forEach((t, index) => {
               const taskEl = document.createElement('div');
               taskEl.className = 'task';
               taskEl.innerText = t;
+              taskEl.addEventListener('click', () => {
+                tasks[activeDay].splice(index, 1);
+                if (tasks[activeDay].length === 0) delete tasks[activeDay];
+                saveTasks();
+                renderTasks();
+                highlightDaysWithTasks();
+              });
               tasksContainer.appendChild(taskEl);
             });
           }
+        }
+      
+        function saveTasks() {
+          localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+      
+        function highlightDaysWithTasks() {
+          days.forEach(day => {
+            const dayName = day.dataset.day;
+            if (tasks[dayName] && tasks[dayName].length > 0) {
+              day.classList.add('has-tasks');
+            } else {
+              day.classList.remove('has-tasks');
+            }
+          });
         }
       </script>
     </body>
