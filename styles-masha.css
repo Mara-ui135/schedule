@@ -1,29 +1,33 @@
 body {
-    background-color: #e6d9f5;
+    background-color: #E3CAA5;
     font-family: sans-serif;
     margin: 0;
     padding: 0;
-  }
-  header {
-    background-color: #9b59b6;
+}
+
+header {
+    background-color: #AD8B73;
     padding: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     color: white;
-  }
-  header nav {
+}
+
+header nav {
     display: flex;
     gap: 15px;
-  }
-  header nav a {
+}
+
+header nav a {
     color: white;
     text-decoration: none;
     position: relative;
     padding-bottom: 5px;
     transition: color 0.3s;
-  }
-  header nav a::after {
+}
+
+header nav a::after {
     content: "";
     position: absolute;
     left: 0;
@@ -32,40 +36,26 @@ body {
     height: 2px;
     background-color: white;
     transition: width 0.3s;
-  }
-  header nav a:hover::after {
+}
+
+header nav a:hover::after {
     width: 100%;
-  }
-  .container {
+}
+
+.container {
     padding: 20px;
-  }
-  h1 {
-    color: #4b2e83;
-  }
-  .days {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 10px;
-  }
-  .day {
-    background-color: white;
-    padding: 10px;
-    border-radius: 8px;
-    flex: 1 1 100px;
-    text-align: center;
-    cursor: pointer;
-    border: 1px solid #ddd;
-    transition: background-color 0.3s;
-  }
-  .day:hover {
-    background-color: #f2e6ff;
-  }
-  .active {
+}
+
+h1 {
+    color: #000000;
+}
+
+.active {
     background-color: #c8a2ff;
     color: white;
-  }
-  textarea {
+}
+
+textarea {
     width: 100%;
     height: 80px;
     margin-top: 15px;
@@ -73,37 +63,44 @@ body {
     border: 1px solid #ccc;
     padding: 8px;
     resize: none;
-  }
-  button {
+}
+
+button {
     margin-top: 10px;
-    background-color: #c8a2ff;
+    background-color: #fcf9ff;
     border: none;
     padding: 15px 30px;
     border-radius: 8px;
     cursor: pointer;
-    color: white;
+    color: rgb(0, 0, 0);
     font-weight: bold;
     font-size: 24px;
     transition: background-color 0.3s;
-  }
-  button:hover {
-    background-color: #a96fff;
-  }
-  .tasks {
+}
+
+button:hover {
+    background-color: #f1f1f1;
+}
+
+.tasks {
     margin-top: 20px;
-  }
-  .task {
+}
+
+.task {
     background-color: white;
     padding: 10px;
     border-radius: 6px;
     margin-top: 5px;
     border: 1px solid #ddd;
-  }
-  main {
+}
+
+main {
     max-width: 800px;
     margin: auto;
     font-size: 20px;
-  }
-  h1, h2 {
+}
+
+h1,
+h2 {
     text-align: center;
-  }
+}
