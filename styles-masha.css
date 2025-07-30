@@ -56,7 +56,7 @@ h1 {
 }
 
 textarea {
-    width: 100%;
+    width: 96%;
     height: 80px;
     margin-top: 15px;
     border-radius: 5px;
@@ -103,4 +103,28 @@ main {
 h1,
 h2 {
     text-align: center;
+}
+@media screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    header nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+    button {
+        width: 100%;
+        padding: 15px;
+        font-size: 20px;
+    }
+    .container {
+        padding: 10px;
+    }
+    h1, h2 {
+        font-size: 24px;
+    }
+   main{
+    padding: 20px;
+   }
 }
